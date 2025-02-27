@@ -1,0 +1,32 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#display {
+    font-size: 50px;
+    width: 310px;
+    padding: 10px;
+    border: solid;
+}
+
+.rows {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rows div {
+    display: flex;
+    justify-content: right;
+    gap: 10px;
+}
+
+button {
+    width: 75px;
+    height: 75px;
+    font-size: 50px;
+}
