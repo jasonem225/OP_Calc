@@ -11,6 +11,9 @@ function multiply(num1, num2){
 }
 
 function divide(num1, num2){
+    if (num2 == 0){
+        return "ERROR";
+    }
     return (num1 / num2);
 }
 
@@ -26,3 +29,13 @@ function operate(num1, num2, operand){
     }
     return "ERROR";
 }
+
+let num1 = "", num2 = "", operand = "", temp = "";
+
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        alert(button.textContent);
+    });
+});
