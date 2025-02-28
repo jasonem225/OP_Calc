@@ -32,10 +32,30 @@ function operate(num1, num2, operand){
 
 let num1 = "", num2 = "", operand = "", temp = "";
 
-const buttons = document.querySelectorAll("button");
+const numbers = document.querySelectorAll(".numbers");
 
-buttons.forEach((button) => {
-    button.addEventListener("click", () => {
-        alert(button.textContent);
+numbers.forEach((number) => {
+    number.addEventListener("click", () => {
+        alert(number.textContent);
     });
+});
+
+const operands = document.querySelectorAll(".operands");
+
+operands.forEach((operand) => {
+    operand.addEventListener("click", () => {
+        alert(operand.textContent);
+    });
+});
+
+const clear = document.querySelector("#clear");
+
+clear.addEventListener("click", () => {
+    alert(clear.textContent);
+});
+
+const equal = document.querySelector("#equal");
+
+equal.addEventListener("click", () => {
+    alert(equal.textContent);
 });
