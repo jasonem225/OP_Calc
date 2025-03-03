@@ -1,42 +1,57 @@
-function add(num1, num2){
-    return (num1 + num2);
+function add(x, y){
+    return (x + y);
 }
 
-function subtract(num1, num2){
-    return (num1 - num2);
+function subtract(x, y){
+    return (x - y);
 }
 
-function multiply(num1, num2){
-    return (num1 * num2);
+function multiply(x, y){
+    return (x * y);
 }
 
-function divide(num1, num2){
-    if (num2 == 0){
-        return "ERROR";
+function divide(x, y){
+    if (y == 0){
+        return "CANNOT DIVIDE BY ZERO";
     }
-    return (num1 / num2);
+    return (x / y);
 }
 
-function operate(num1, num2, operand){
-    if (operand == "+"){
-        return add(num1, num2);
-    } else if (operand == "-"){
-        return subtract(num1, num2);
-    } else if (operand == "*"){
-        return multiply(num1, num2);
-    } else if (operand == "/"){
-        return divide(num1, num2);
+function operate(x, y, symbol){
+    if (symbol == "+"){
+        return add(x, y);
+    } else if (symbol == "-"){
+        return subtract(x, y);
+    } else if (symbol == "*"){
+        return multiply(x, y);
+    } else if (symbol == "/"){
+        return divide(x, y);
     }
-    return "ERROR";
+    return "INVALID OPERAND";
 }
 
-let num1 = "", num2 = "", operand = "", temp = "";
+let num1, num2, operand = "", temp = "";
+
+const display = document.querySelector("#display");
+
+function updateDisplay(){
+    display.textContent = temp;
+}
+
+function inputNumber(input){
+    if (temp == "0"){
+        temp = "";
+    }
+    temp += input;
+}
 
 const numbers = document.querySelectorAll(".numbers");
 
 numbers.forEach((number) => {
     number.addEventListener("click", () => {
-        alert(number.textContent);
+        // alert(number.textContent);
+        inputNumber(number.textContent);
+        updateDisplay();
     });
 });
 
