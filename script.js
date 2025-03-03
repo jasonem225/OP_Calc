@@ -1,5 +1,5 @@
 function add(x, y){
-    return (x + y);
+    return (1*x + 1*y);
 }
 
 function subtract(x, y){
@@ -30,7 +30,7 @@ function operate(x, y, symbol){
     return "INVALID OPERAND";
 }
 
-let num1, num2, operand = "", temp = "";
+let num1 = "", num2 = "", operand = "", temp = "";
 
 const display = document.querySelector("#display");
 
@@ -43,6 +43,13 @@ function inputNumber(input){
         temp = "";
     }
     temp += input;
+}
+
+function clearAll(){
+    num1 = "";
+    num2 = "";
+    operand = "";
+    temp = "0";
 }
 
 const numbers = document.querySelectorAll(".numbers");
@@ -66,7 +73,9 @@ operands.forEach((operand) => {
 const clear = document.querySelector("#clear");
 
 clear.addEventListener("click", () => {
-    alert(clear.textContent);
+    // alert(clear.textContent);
+    clearAll();
+    updateDisplay();
 });
 
 const equal = document.querySelector("#equal");
