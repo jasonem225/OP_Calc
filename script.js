@@ -43,43 +43,78 @@ function inputNumber(input){
         temp = "";
     }
     temp += input;
+    updateDisplay();
 }
 
 function clearAll(){
     num1 = "";
     num2 = "";
     operand = "";
+}
+
+function inputClear(){
+    clearAll();
     temp = "0";
+    updateDisplay();
+}
+
+function solve(){
+    num2 = temp;
+    temp = operate(num1, num2, operand);
+    clearAll();
+    num1 = temp;
+    updateDisplay();
+    temp = "";
+}
+
+function inputEqual(){
+    if (operand != ""){
+        solve();
+    }
+}
+
+function inputOperand(op){
+    if (operand != ""){
+        if (temp != ""){
+            solve();
+        }
+    } else {
+        if (temp != ""){
+            num1 = temp;
+            temp = "";
+        } else {
+            if (num1 == ""){
+                num1 = 0;
+            }
+        }
+    }
+    operand = op;
 }
 
 const numbers = document.querySelectorAll(".numbers");
 
 numbers.forEach((number) => {
     number.addEventListener("click", () => {
-        // alert(number.textContent);
         inputNumber(number.textContent);
-        updateDisplay();
     });
 });
 
 const operands = document.querySelectorAll(".operands");
 
-operands.forEach((operand) => {
-    operand.addEventListener("click", () => {
-        alert(operand.textContent);
+operands.forEach((op) => {
+    op.addEventListener("click", () => {
+        inputOperand(op.textContent);
     });
 });
 
 const clear = document.querySelector("#clear");
 
 clear.addEventListener("click", () => {
-    // alert(clear.textContent);
-    clearAll();
-    updateDisplay();
+    inputClear();
 });
 
 const equal = document.querySelector("#equal");
 
 equal.addEventListener("click", () => {
-    alert(equal.textContent);
+    inputEqual();
 });
